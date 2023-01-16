@@ -1,5 +1,9 @@
 import datetime
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 class Base:
     def __init__(self, driver):
@@ -29,3 +33,6 @@ class Base:
         get_url = self.driver.current_url
         assert get_url == result, get_url
         print('ok value url')
+        
+    def get_element(self, element):
+        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, element)))

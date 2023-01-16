@@ -8,7 +8,7 @@ from pages.login_page import Login_page
 
 
 
-def test_login(set_group):
+def test_smoke(set_group, set_up):
     
     options = webdriver.ChromeOptions()
     options.add_argument('log-level=3')  # отключение предупреждения ошибки рукопожатия

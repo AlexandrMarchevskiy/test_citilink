@@ -1,8 +1,5 @@
 import time
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import allure
 from base.base_class import Base
 from utilities.logger import Logger
@@ -19,43 +16,30 @@ class Login_page(Base):
 
     # Locators
 
-    login_button = '//div[@class="HeaderMenu__buttons  HeaderMenu__buttons_user"]'
+    login_button = '/html/body/div[2]/div[2]/header/div[2]/div[2]/div[2]/div[3]/div[6]'
     email_or_phone_field = '//input[@class=" InputBox__input js--InputBox__input  js--SignIn__login__container-input"]'
     password_field = '//input[@class=" InputBox__input js--InputBox__input  js--SignIn__password js--InputPassword InputPassword__container-input"]'
     enter_button = '//button[@class="SignIn__button js--SignIn__action_sign-in  Button  jsButton Button_theme_primary Button_size_m Button_full-width"]'
 
-    # Getters
-
-    def get_login_button(self):
-        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.login_button)))
-    
-    def get_email_or_phone_field(self):
-        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.email_or_phone_field)))
-    
-    def get_password_field(self):
-        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.password_field)))
-    
-    def get_enter_button(self):
-        return WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, self.enter_button)))
-
+  
+  
     # Actions
-
-
+    
     def click_login_button(self):
-        self.get_login_button().click()
+        self.get_element(self.login_button).click()
         print('click login button')
-        
+    
         
     def input_email_or_phone_field(self, email_or_phone):
-        self.get_email_or_phone_field().send_keys(email_or_phone)
+        self.get_element(self.email_or_phone_field).send_keys(email_or_phone)
         print('input email or phone')
 
     def input_password(self, password):
-        self.get_password_field().send_keys(password)
+        self.get_element(self.password_field).send_keys(password)
         print('input password')
     
     def click_enter_button(self):
-        self.get_enter_button().click()
+        self.get_element(self.enter_button).click()
         print('click enter button')
         
         
