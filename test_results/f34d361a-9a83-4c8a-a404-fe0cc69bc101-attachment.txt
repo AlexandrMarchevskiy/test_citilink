@@ -1,0 +1,8 @@
+Enter system
+current url https://www.citilink.ru/
+click login button
+input email or phone
+input password
+click enter button
+ok value url
+Exit system

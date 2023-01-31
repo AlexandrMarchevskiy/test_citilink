@@ -16,10 +16,10 @@ class Login_page(Base):
 
     # Locators
 
-    login_button = '/html/body/div[2]/div[2]/header/div[2]/div[2]/div[2]/div[3]/div[6]'
-    email_or_phone_field = '//input[@class=" InputBox__input js--InputBox__input  js--SignIn__login__container-input"]'
-    password_field = '//input[@class=" InputBox__input js--InputBox__input  js--SignIn__password js--InputPassword InputPassword__container-input"]'
-    enter_button = '//button[@class="SignIn__button js--SignIn__action_sign-in  Button  jsButton Button_theme_primary Button_size_m Button_full-width"]'
+    login_button = '//*[@id="__next"]/div/div[3]/div/div[2]/div/div/div[2]/div[2]/div[1]'
+    email_or_phone_field = '//input[@name="login"]'
+    password_field = '//input[@name="pass"]'
+    enter_button = '//button[@class="e4uhfkv0 css-1yh1imp e4mggex0"]'
 
   
   
@@ -58,6 +58,6 @@ class Login_page(Base):
             self.input_email_or_phone_field('IQBusinessCoffee@yandex.ru')
             self.input_password('16092014_Iii')
             self.click_enter_button()
-            self.assert_url('https://www.citilink.ru/?_from_page=login')
+            self.assert_url('https://www.citilink.ru/?_action=login&_success_login=1')
             Logger.add_end_step(url=self.driver.current_url, method='authorisation')
 
